@@ -55,11 +55,6 @@ const books = [
   // Add more books as needed
 ];
 
-export const metadata = {
-  title: "Works",
-  description: "Books and writings by Sean Thor Conroe, author of Fuccboi",
-};
-
 export default function Works() {
   return (
     <div className="container py-12">
