@@ -2,13 +2,20 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function TextureBackground() {
-  const { resolvedTheme, theme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Don't render until we know the theme
-  if (!resolvedTheme) return null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Prevent hydration mismatch by not rendering anything on server
+  if (!mounted) return null;
+
+  const isDark = resolvedTheme === "dark";
 
   const noiseSvg = `
     <svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'>
@@ -27,12 +34,7 @@ export function TextureBackground() {
   const encodedNoise = encodeURIComponent(noiseSvg);
 
   return (
-    <div
-      className="fixed inset-0 -z-10 h-full w-full overflow-hidden"
-      style={{
-        backgroundColor: isDark ? "rgb(0 0 0)" : "rgb(255 255 255)",
-      }}
-    >
+    <div className="fixed inset-0 -z-10 h-full w-full overflow-hidden bg-background">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
