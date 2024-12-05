@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 
 export function TextureBackground() {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const { resolvedTheme, theme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  // Don't render until we know the theme
+  if (!resolvedTheme) return null;
 
   const noiseSvg = `
     <svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'>
@@ -24,7 +27,12 @@ export function TextureBackground() {
   const encodedNoise = encodeURIComponent(noiseSvg);
 
   return (
-    <div className="fixed inset-0 -z-10 h-full w-full overflow-hidden">
+    <div
+      className="fixed inset-0 -z-10 h-full w-full overflow-hidden"
+      style={{
+        backgroundColor: isDark ? "rgb(0 0 0)" : "rgb(255 255 255)",
+      }}
+    >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
