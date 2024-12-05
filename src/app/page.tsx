@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Newspaper, Youtube, Headphones } from "lucide-react";
+import {
+  ArrowRight,
+  Newspaper,
+  Youtube,
+  Headphones,
+  BookOpen,
+  ShoppingCart,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -99,6 +106,36 @@ export default function Home() {
                   className="object-cover rounded-lg shadow-xl"
                 />
               </motion.div>
+              <div className="mt-4 flex gap-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-full text-muted-foreground hover:text-foreground"
+                  asChild
+                >
+                  <Link
+                    href="https://www.goodreads.com/book/show/58078525-fuccboi"
+                    target="_blank"
+                  >
+                    <BookOpen className="mr-2 h-4 w-4" />
+                    Goodreads
+                  </Link>
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-full text-muted-foreground hover:text-foreground"
+                  asChild
+                >
+                  <Link
+                    href="https://www.amazon.com.au/Fuccboi-Sean-Thor-Conroe/dp/0316394815"
+                    target="_blank"
+                  >
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    Purchase
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </section>
