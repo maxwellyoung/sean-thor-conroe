@@ -6,17 +6,47 @@ import { Link, ArrowRight } from "lucide-react";
 
 const journalEntries = [
   {
-    date: "May 15, 2023",
-    title: "On Writing and Authenticity",
-    excerpt:
-      "Thoughts on maintaining a genuine voice in the face of success...",
+    date: "Nov 29, 2023",
+    title: "Sedrick Chisom interview",
+    excerpt: "Interviewed the painter Sedrick Chisom",
+    link: "https://seanthorconroe.substack.com/p/sedrick-chisom-interview",
   },
   {
-    date: "April 2, 2023",
-    title: "New Work in Progress",
-    excerpt: "Excited to share that I have started work on a new project...",
+    date: "Nov 22, 2023",
+    title: "Carpentry Journal 4",
+    excerpt: "Latest entry in the carpentry series",
+    link: "https://seanthorconroe.substack.com/p/carpentry-journal-4",
   },
-  // Add more entries as needed
+  {
+    date: "Nov 20, 2023",
+    title: "Diversity, Equity, and Inclusion",
+    excerpt: "Set building with the boys for JP Morgan's DEI event",
+    link: "https://seanthorconroe.substack.com/p/diversity-equity-and-inclusion",
+  },
+  {
+    date: "Oct 23, 2023",
+    title: "Carpentry Journal",
+    excerpt: "My personal journal",
+    link: "https://seanthorconroe.substack.com/p/carpentry-journal",
+  },
+  {
+    date: "Oct 14, 2023",
+    title: "Journal 1",
+    excerpt: "Contexts, Housekeeping, boundaries...",
+    link: "https://seanthorconroe.substack.com/p/journal-1",
+  },
+  {
+    date: "Jul 18, 2023",
+    title: "On Sam Pink, Scheming, and Slander",
+    excerpt: "The truth about MFA Dads...",
+    link: "https://seanthorconroe.substack.com/p/on-sam-pink-scheming-and-slander",
+  },
+  {
+    date: "Jul 10, 2023",
+    title: "Coming soon",
+    excerpt: "This is Sean's Substack",
+    link: "https://seanthorconroe.substack.com/p/coming-soon",
+  },
 ];
 
 export default function Journal() {
@@ -50,7 +80,7 @@ export default function Journal() {
                 </p>
                 <div className="mt-4">
                   <Button variant="link" className="p-0 h-auto" asChild>
-                    <Link href="#">
+                    <Link href={entry.link} target="_blank">
                       Read more
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>

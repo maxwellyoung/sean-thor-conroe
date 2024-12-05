@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import { Footer } from "@/components/footer";
+import { TextureBackground } from "@/components/texture-background";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({
@@ -70,6 +71,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <TextureBackground />
           <div className="relative min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">{children}</main>
