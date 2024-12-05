@@ -1,8 +1,8 @@
+import "@/styles/globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/config/site";
-import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Footer } from "@/components/footer";
 
