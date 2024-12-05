@@ -73,19 +73,22 @@ export default function Works() {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer bg-card rounded-lg p-4 transition-shadow hover:shadow-lg"
                 >
                   <div className="relative aspect-[3/4] mb-4">
                     <Image
                       src={book.coverImage}
                       alt={book.title}
                       fill
-                      className="object-cover rounded-lg transition-shadow group-hover:shadow-xl"
+                      className="object-cover rounded-lg"
                     />
                   </div>
                   <h2 className="text-xl font-serif font-bold">{book.title}</h2>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mt-1">
                     {book.publishDate}
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
+                    {book.description}
                   </p>
                 </motion.div>
               }

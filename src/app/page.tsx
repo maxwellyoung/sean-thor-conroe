@@ -91,13 +91,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative aspect-[3/4] lg:aspect-[2/3]"
+              className="relative aspect-[3/4] lg:aspect-[2/3] group"
             >
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-                className="relative w-full h-full"
-              >
+              <div className="relative h-full">
                 <Image
                   src="/images/fuccboi-cover-1.webp"
                   alt="Fuccboi by Sean Thor Conroe"
@@ -105,36 +101,30 @@ export default function Home() {
                   priority
                   className="object-cover rounded-lg shadow-xl"
                 />
-              </motion.div>
-              <div className="mt-4 flex gap-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full text-muted-foreground hover:text-foreground"
-                  asChild
-                >
-                  <Link
-                    href="https://www.goodreads.com/book/show/58078525-fuccboi"
-                    target="_blank"
-                  >
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    Goodreads
-                  </Link>
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full text-muted-foreground hover:text-foreground"
-                  asChild
-                >
-                  <Link
-                    href="https://www.amazon.com.au/Fuccboi-Sean-Thor-Conroe/dp/0316394815"
-                    target="_blank"
-                  >
-                    <ShoppingCart className="mr-2 h-4 w-4" />
-                    Purchase
-                  </Link>
-                </Button>
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-background/80 to-transparent rounded-b-lg">
+                  <div className="flex justify-between items-center">
+                    <Button variant="ghost" size="sm" asChild>
+                      <Link
+                        href="https://www.goodreads.com/book/show/58078525-fuccboi"
+                        target="_blank"
+                        className="text-foreground/80 hover:text-foreground"
+                      >
+                        <BookOpen className="mr-2 h-4 w-4" />
+                        Goodreads
+                      </Link>
+                    </Button>
+                    <Button variant="ghost" size="sm" asChild>
+                      <Link
+                        href="https://www.amazon.com.au/Fuccboi-Sean-Thor-Conroe/dp/0316394815"
+                        target="_blank"
+                        className="text-foreground/80 hover:text-foreground"
+                      >
+                        <ShoppingCart className="mr-2 h-4 w-4" />
+                        Purchase
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>

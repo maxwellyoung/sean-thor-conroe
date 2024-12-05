@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Link, ArrowRight } from "lucide-react";
 
 const journalEntries = [
   {
@@ -28,29 +30,32 @@ export default function Journal() {
           className="max-w-3xl mx-auto"
         >
           <h1 className="text-4xl font-serif font-bold mb-8">Journal</h1>
-          <div className="space-y-8">
+          <div className="space-y-12">
             {journalEntries.map((entry, index) => (
               <motion.article
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="border-b border-border pb-8"
+                className="group"
               >
                 <time className="text-sm text-muted-foreground">
                   {entry.date}
                 </time>
-                <h2 className="text-2xl font-serif font-bold mt-2 mb-4">
+                <h2 className="text-2xl font-serif font-bold mt-2 mb-3 group-hover:text-primary transition-colors">
                   {entry.title}
                 </h2>
-                <p className="text-lg text-muted-foreground">{entry.excerpt}</p>
-                <motion.a
-                  href="#"
-                  whileHover={{ x: 5 }}
-                  className="inline-block mt-4 text-primary font-semibold"
-                >
-                  Read more →
-                </motion.a>
+                <p className="text-muted-foreground leading-relaxed">
+                  {entry.excerpt}
+                </p>
+                <div className="mt-4">
+                  <Button variant="link" className="p-0 h-auto" asChild>
+                    <Link href="#">
+                      Read more
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
               </motion.article>
             ))}
           </div>
