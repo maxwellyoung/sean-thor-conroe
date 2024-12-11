@@ -11,7 +11,7 @@ export function Footer() {
             href="https://dev.maxwellyoung.info"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 hover:text-foreground"
+            className="hover:underline transition-all duration-300 underline-offset-4 hover:text-foreground"
           >
             Maxwell Young
           </a>

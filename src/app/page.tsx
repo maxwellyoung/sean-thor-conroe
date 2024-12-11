@@ -20,7 +20,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <SectionPattern>
         <main className="flex-1">
-          <section className="container py-12 md:py-24">
+          <section className="container py-4 md:py-8">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
