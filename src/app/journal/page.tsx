@@ -2,54 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Link, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import NextLink from "next/link";
 
-const journalEntries = [
-  {
-    date: "Nov 29, 2023",
-    title: "Sedrick Chisom interview",
-    excerpt: "Interviewed the painter Sedrick Chisom",
-    link: "https://seanthorconroe.substack.com/p/sedrick-chisom-interview",
-  },
-  {
-    date: "Nov 22, 2023",
-    title: "Carpentry Journal 4",
-    excerpt: "Latest entry in the carpentry series",
-    link: "https://seanthorconroe.substack.com/p/carpentry-journal-4",
-  },
-  {
-    date: "Nov 20, 2023",
-    title: "Diversity, Equity, and Inclusion",
-    excerpt: "Set building with the boys for JP Morgan's DEI event",
-    link: "https://seanthorconroe.substack.com/p/diversity-equity-and-inclusion",
-  },
-  {
-    date: "Oct 23, 2023",
-    title: "Carpentry Journal",
-    excerpt: "My personal journal",
-    link: "https://seanthorconroe.substack.com/p/carpentry-journal",
-  },
-  {
-    date: "Oct 14, 2023",
-    title: "Journal 1",
-    excerpt: "Contexts, Housekeeping, boundaries...",
-    link: "https://seanthorconroe.substack.com/p/journal-1",
-  },
-  {
-    date: "Jul 18, 2023",
-    title: "On Sam Pink, Scheming, and Slander",
-    excerpt: "The truth about MFA Dads...",
-    link: "https://seanthorconroe.substack.com/p/on-sam-pink-scheming-and-slander",
-  },
-  {
-    date: "Jul 10, 2023",
-    title: "Coming soon",
-    excerpt: "This is Sean's Substack",
-    link: "https://seanthorconroe.substack.com/p/coming-soon",
-  },
-];
+interface JournalEntry {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+}
 
 export default function Journal() {
+  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchRSSFeed() {
+      try {
+        // Fetch RSS feed through a proxy to avoid CORS issues
+        const response = await fetch("/api/substack-feed");
+        const data = await response.json();
+        setEntries(data.items);
+      } catch (error) {
+        console.error("Failed to fetch RSS feed:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchRSSFeed();
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1 container py-12">
@@ -59,35 +43,58 @@ export default function Journal() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto"
         >
-          <h1 className="text-4xl font-serif font-bold mb-8">Journal</h1>
-          <div className="space-y-12">
-            {journalEntries.map((entry, index) => (
-              <motion.article
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-4xl font-serif font-bold">Journal</h1>
+            <Button variant="outline" asChild>
+              <NextLink
+                href="https://seanthorconroe.substack.com"
+                target="_blank"
+                className="flex items-center"
               >
-                <time className="text-sm text-muted-foreground">
-                  {entry.date}
-                </time>
-                <h2 className="text-2xl font-serif font-bold mt-2 mb-3 group-hover:text-primary transition-colors">
-                  {entry.title}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {entry.excerpt}
-                </p>
-                <div className="mt-4">
-                  <Button variant="link" className="p-0 h-auto" asChild>
-                    <Link href={entry.link} target="_blank">
-                      Read more
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </motion.article>
-            ))}
+                Subscribe on Substack
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </NextLink>
+            </Button>
+          </div>
+
+          <div className="space-y-12">
+            {isLoading ? (
+              <div className="flex justify-center py-12">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+              </div>
+            ) : (
+              entries.map((entry, index) => (
+                <motion.article
+                  key={entry.link}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group"
+                >
+                  <time className="text-sm text-muted-foreground">
+                    {new Date(entry.pubDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <h2 className="text-2xl font-serif font-bold mt-2 mb-3 group-hover:text-primary transition-colors">
+                    {entry.title}
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    {entry.description}
+                  </p>
+                  <div className="mt-4">
+                    <Button variant="link" className="p-0 h-auto" asChild>
+                      <NextLink href={entry.link} target="_blank">
+                        Read more
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </NextLink>
+                    </Button>
+                  </div>
+                </motion.article>
+              ))
+            )}
           </div>
         </motion.div>
       </main>
