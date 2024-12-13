@@ -80,6 +80,8 @@ export default function Works() {
                       src={book.coverImage}
                       alt={book.title}
                       fill
+                      placeholder="blur"
+                      blurDataURL="/images/fuccboi-cover-1-blur.webp"
                       className="object-cover rounded-lg"
                     />
                   </div>

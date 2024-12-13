@@ -87,6 +87,8 @@ export default function About() {
               alt="Sean Thor Conroe"
               fill
               priority
+              placeholder="blur"
+              blurDataURL="/images/sean1-blur.webp"
               className="object-cover rounded-lg"
             />
           </motion.div>

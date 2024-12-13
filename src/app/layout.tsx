@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    creator: "@seanthorconroe",
+    creator: "@stconroe",
   },
   icons: {
     icon: "/favicon.ico",

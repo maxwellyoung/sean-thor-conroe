@@ -29,7 +29,7 @@ export default function Contact() {
             </Link>
           </Button>
           <Button variant="outline" size="lg" className="w-full" asChild>
-            <Link href="https://twitter.com/seanthorconroe" target="_blank">
+            <Link href="https://twitter.com/stconroe" target="_blank">
               <Twitter className="mr-2 h-4 w-4" />
               Twitter
             </Link>

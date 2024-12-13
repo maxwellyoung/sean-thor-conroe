@@ -103,6 +103,8 @@ export default function Home() {
                     alt="Fuccboi by Sean Thor Conroe"
                     fill
                     priority
+                    placeholder="blur"
+                    blurDataURL="/images/fuccboi-cover-1-blur.webp"
                     className="object-cover rounded-lg shadow-xl"
                   />
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-background/80 to-transparent rounded-b-lg">
