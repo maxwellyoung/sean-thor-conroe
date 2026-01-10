@@ -1,51 +1,42 @@
 import "@/styles/globals.css";
-import { Inter, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
-import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import { Footer } from "@/components/footer";
-import { TextureBackground } from "@/components/texture-background";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seanthorconroe.com"),
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: "sean thor conroe",
+    template: `%s | sean thor conroe`,
   },
-  description: siteConfig.description,
+  description: "writer. author of fuccboi. host of 1storypod.",
   keywords: [
-    "Sean Thor Conroe",
-    "Fuccboi",
-    "Author",
-    "Contemporary Literature",
-    "1StoryPod",
+    "sean thor conroe",
+    "fuccboi",
+    "author",
+    "1storypod",
+    "alt-lit",
   ],
   authors: [
     {
-      name: "Sean Thor Conroe",
+      name: "sean thor conroe",
       url: "https://seanthorconroe.com",
     },
   ],
-  creator: "Sean Thor Conroe",
+  creator: "sean thor conroe",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://seanthorconroe.com",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    title: "sean thor conroe",
+    description: "writer. author of fuccboi. host of 1storypod.",
+    siteName: "sean thor conroe",
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "sean thor conroe",
+    description: "writer. author of fuccboi. host of 1storypod.",
     creator: "@stconroe",
   },
   icons: {
@@ -62,16 +53,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
-      >
+      <body className="font-mono antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <TextureBackground />
           <div className="relative min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">{children}</main>
