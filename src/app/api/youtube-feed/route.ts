@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // 1storypod YouTube channel
-const YOUTUBE_RSS_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UCwYTr8LrwmVMZBkqoKnuXrQ";
+const YOUTUBE_RSS_URL = "https://www.youtube.com/feeds/videos.xml?channel_id=UC8nG7iXSO9VmClRs-eAHZgQ";
 
 export async function GET() {
   try {
