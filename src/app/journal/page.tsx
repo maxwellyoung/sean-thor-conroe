@@ -7,6 +7,9 @@ interface JournalEntry {
   link: string;
   pubDate: string;
   description: string;
+  creator?: string;
+  isCrosspost?: boolean;
+  originalSource?: string;
 }
 
 export default function Journal() {
@@ -59,13 +62,20 @@ export default function Journal() {
           <div className="space-y-8">
             {entries.map((entry) => (
               <article key={entry.link} className="border-b border-border pb-8">
-                <time className="text-xs text-muted-foreground">
-                  {new Date(entry.pubDate).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  }).toLowerCase()}
-                </time>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <time>
+                    {new Date(entry.pubDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }).toLowerCase()}
+                  </time>
+                  {entry.isCrosspost && entry.originalSource && (
+                    <span className="text-muted-foreground/70">
+                      · crosspost from {entry.originalSource}
+                    </span>
+                  )}
+                </div>
                 <h2 className="text-base mt-1 mb-2">
                   <a
                     href={entry.link}
