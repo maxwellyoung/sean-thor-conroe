@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ExcerptShuffler } from "@/components/excerpt-shuffler";
 
 export default function Home() {
   return (
@@ -51,11 +52,7 @@ export default function Home() {
           <h2 className="text-xs text-muted-foreground mb-4 uppercase tracking-wider">
             from the book
           </h2>
-          <blockquote className="border-l-2 border-border pl-4 text-muted-foreground italic">
-            sometimes you gotta flex. sometimes you gotta show the world what&apos;s inside you,
-            show them what you&apos;re capable of. even if that means getting misunderstood.
-            getting labeled arrogant, angry, difficult. you gotta do you regardless.
-          </blockquote>
+          <ExcerptShuffler />
         </section>
 
         <section className="mb-16">
@@ -80,6 +77,12 @@ export default function Home() {
                 substack
               </a>
               {" "}— writing updates, essays
+            </li>
+            <li>
+              <a href="https://blast2mag.substack.com" target="_blank" rel="noopener noreferrer">
+                blast 2
+              </a>
+              {" "}— radical literature magazine (co-editor)
             </li>
             <li>
               <a href="https://x.com/stconroe" target="_blank" rel="noopener noreferrer">

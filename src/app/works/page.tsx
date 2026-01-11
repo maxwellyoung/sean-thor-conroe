@@ -21,7 +21,7 @@ const books = [
       },
       {
         name: "bookshop.org",
-        url: "https://bookshop.org/books/fuccboi-9780316395434/9780316395434",
+        url: "https://bookshop.org/books/fuccboi/9780316394819",
       },
     ],
     goodreadsUrl: "https://www.goodreads.com/book/show/57693457-fuccboi",

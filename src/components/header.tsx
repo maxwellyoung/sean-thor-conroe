@@ -20,7 +20,7 @@ export function Header() {
   return (
     <header className="border-b border-border">
       <div className="container flex h-14 items-center justify-between">
-        <Link href="/" className="text-sm font-medium no-underline hover:no-underline">
+        <Link href="/" className="text-sm font-medium no-underline hover:no-underline glitch-hover" data-text="sean thor conroe">
           sean thor conroe
         </Link>
 
