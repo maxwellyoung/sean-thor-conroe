@@ -84,7 +84,8 @@ export default function About() {
             influences
           </h2>
           <p className="text-sm text-muted-foreground">
-            nietzsche. bolaño. wittgenstein. drake. young m.a. faulkner. the recognitions. soundcloud rap. autofiction. the internet.
+            nietzsche. bolaño. wittgenstein. drake. young m.a. faulkner. the recognitions. soundcloud rap. autofiction. the internet.{" "}
+            <a href="/influences">see full list →</a>
           </p>
         </section>
       </div>

@@ -45,7 +45,16 @@ export default function Journal() {
         </div>
 
         {isLoading ? (
-          <p className="text-sm text-muted-foreground">loading...</p>
+          <div className="space-y-8">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="border-b border-border pb-8 animate-pulse">
+                <div className="h-3 w-24 bg-muted mb-2" />
+                <div className="h-5 w-3/4 bg-muted mb-2" />
+                <div className="h-3 w-full bg-muted" />
+                <div className="h-3 w-2/3 bg-muted mt-1" />
+              </div>
+            ))}
+          </div>
         ) : (
           <div className="space-y-8">
             {entries.map((entry) => (

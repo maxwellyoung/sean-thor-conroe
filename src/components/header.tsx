@@ -8,6 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 const navItems = [
   { href: "/", label: "home" },
   { href: "/works", label: "works" },
+  { href: "/podcast", label: "podcast" },
   { href: "/journal", label: "journal" },
   { href: "/about", label: "about" },
   { href: "/contact", label: "contact" },
