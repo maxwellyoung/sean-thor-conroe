@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:blast2mag.substack.com)",
+      "Bash(curl:*)",
+      "WebSearch",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nadd blast 2 link, fix bookshop url, glitch effect + excerpt shuffler\n\n- add blast 2 magazine \\(co-edited by sean\\) to homepage links\n- fix broken bookshop.org url \\(old format deprecated\\)\n- add glitch text effect on header name hover\n- add clickable excerpt shuffler with multiple fuccboi quotes\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nadd podcast page, contact form, influences, rss feed, 404\n\n- /podcast: youtube integration with episode thumbnails\n- /contact: form with inquiry type dropdown \\(formspree\\)\n- /influences: detailed breakdown of literary/philosophical influences\n- /api/feed: rss feed endpoint proxying substack\n- improved 404 with glitch effect and fuccboi quote\n- skeleton loading states for journal + podcast\n- add rss link to footer, influences link to about\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "WebFetch(domain:seanthorconroe.substack.com)",
+      "Bash(tr:*)"
+    ]
+  }
+}
